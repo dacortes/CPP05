@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/06 15:36:27 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:51:12 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class  Bureaucrat
 		 * Orthodox Canonical Form
 		*/
 		Bureaucrat(void);
-		Bureaucrat(std::string name, int grade);
+		Bureaucrat(std::string defname, int grade);
 		Bureaucrat(const Bureaucrat &obj);
 		Bureaucrat &operator=(const Bureaucrat &obj);
 		~Bureaucrat(void);
