@@ -1,0 +1,7 @@
+*.o
+*.d
+obj
+*.swp
+.DS_*
+._.*
+Bureaucrat

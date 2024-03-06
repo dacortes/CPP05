@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:05:02 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/06 15:52:04 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:55:38 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ Bureaucrat::Bureaucrat(void): name("default")
 Bureaucrat::Bureaucrat(std::string defname, int grade): name(defname)
 {
 	this->grade = grade;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.getName())
+{
+	this->grade = obj.getGrade();
 }
 
 Bureaucrat::~Bureaucrat(void)
