@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 16:53:57 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/07 17:54:04 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@
 # define INIT_CONSTRUCTOR	"Init constructor: out of range: "
 # define COPY_CONSTRUCTOR	"Copy constructor: out of range: "
 # define SET_GRADE			"SetGrade: out of range: "
-# define DECREMENT			"Decrement: out of eange: "
+# define DECREMENT			"Decrement: out of range: "
+# define INVALID			"invalid parameter: "
 
 /******************************************************************************/
 /*                            CLASS                                           */

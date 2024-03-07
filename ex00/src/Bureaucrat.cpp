@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:05:02 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 17:21:09 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/07 17:58:49 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,24 @@ unsigned short int Bureaucrat::getGrade(void) const
 
 int	Bureaucrat::IncrementGrade(int increment)
 {
-	this->grade -= increment;
+	if (increment > 150)
+	{
+        throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+                + std::string(INVALID)
+				+ std::string("parameter larger than max"));
+	}
+	else if (increment < 1)
+	{
+        throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+                + std::string(INVALID) + std::string("negative number"));
+	}
+	else
+	{
+		this->grade -= increment;
+		if (this->grade < 1)
+			throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+				+ std::string(COPY_CONSTRUCTOR) + std::string("High"));
+	}
 	return (increment);
 }
 
@@ -82,7 +99,7 @@ int Bureaucrat::DecrementGrade(int decrement)
 	if (decrement < 1)
     {
         throw Bureaucrat::GradeTooHighException(std::string(ERROR)
-                + std::string(DECREMENT) + std::string("High"));
+                + std::string(INVALID) + std::string("negative number"));
     }
     else
     {
