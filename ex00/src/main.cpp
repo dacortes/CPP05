@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 18:18:42 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:21:48 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,6 @@ void	loop_test_grade_high(void)
 	Bureaucrat foo("dacortes", 150);
 
     std::cout << C << "Test loop: increment" << E << std::endl;
-    int dec = 1;
     try
     {
         while (foo.getGrade() != 1)
@@ -163,7 +162,6 @@ void	loop_test_grade_low(void)
 	Bureaucrat foo("dacortes", 1);
 
     std::cout << C << "Test loop: decrement" << E << std::endl;
-    int dec = 1;
     try
     {
         while (foo.getGrade() != 150)
