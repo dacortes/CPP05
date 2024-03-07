@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 12:06:24 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:53:57 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@
 # define F "\033[1m\033[38;5;128m"  //purple
 
 /******************************************************************************/
+/*                            MACROS                                          */
+/******************************************************************************/
+
+# define ERROR				"\033[1m\033[1;31mError: \033[m" 
+# define INIT_CONSTRUCTOR	"Init constructor: out of range: "
+# define COPY_CONSTRUCTOR	"Copy constructor: out of range: "
+# define SET_GRADE			"SetGrade: out of range: "
+# define DECREMENT			"Decrement: out of eange: "
+
+/******************************************************************************/
 /*                            CLASS                                           */
 /******************************************************************************/
 
@@ -45,20 +55,6 @@ class  Bureaucrat
 		const std::string	name;
 		unsigned short int	grade;
 	public:
-		/*
-		 * Exception Classes
-		*/
-	//	class	GradeTooHighException;
-	//	class	GradeTooLowException;
-		    class GradeTooLowException: public std::range_error {
-    public:
-        GradeTooLowException(const std::string &message);
-    };
-
-    class GradeTooHighException: public std::range_error {
-    public:
-        GradeTooHighException(const std::string &message);
-    };
 		/*
 		 * Orthodox Canonical Form
 		*/
@@ -77,6 +73,19 @@ class  Bureaucrat
 		*/
 		int	IncrementGrade(int increment);
 		int	DecrementGrade(int decrement);
+		/*
+		 * Exception Classes
+		*/
+		class GradeTooLowException: public std::range_error
+		{
+			public:
+        	GradeTooLowException(const std::string &msg);
+    	};
+		class GradeTooHighException: public std::range_error
+		{
+    		public:
+        	GradeTooHighException(const std::string &msg);
+    	};
 };
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
 #endif

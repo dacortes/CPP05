@@ -6,50 +6,12 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:05:02 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 12:07:02 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/07 17:21:09 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
 
-/*
- * Exception Classes
-*/
-
-//class Bureaucrat::GradeTooHighException: public std::range_error
-//{
-//	public:
-//		/*
-//		 * Membert Funtions
-//		*/
-//		std::string _msg;
-//		~GradeTooHighException(void);
-//		GradeTooHighException (const std::string &messege): std::range_error()
-//		{
-//			_msg = messege;
-//		
-//		};
-//		const char *what () const throw (){
-//			return ((_msg.c_str()));
-//		}
-//		//GradeTooHighException (const char *messege);
-//
-//};
-//
-//class Bureaucrat::GradeTooLowException: public std::range_error
-//{
-//	public:
-//		/*
-//		 * Membert Funtions
-//		*/
-//		GradeTooLowException (const std::string &messege);
-//		GradeTooLowException (const char *messege);
-//};
-Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string &message)
-    : std::range_error(message) {}
-
-Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string &message)
-    : std::range_error(message) {}
 /*
  * Orthodox Canonical Form
 */
@@ -63,17 +25,26 @@ Bureaucrat::Bureaucrat(void): name("default")
 
 Bureaucrat::Bureaucrat(std::string defname, int grade): name(defname)
 {
-	//if (grade < 1)
-	//	throw Bureaucrat::GradeTooLowException("holi");
 	if (grade > 150)
-		throw Bureaucrat::GradeTooHighException("queso");
+		throw Bureaucrat::GradeTooLowException(std::string(ERROR)
+				+ std::string(INIT_CONSTRUCTOR) + std::string("Low"));
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+				+ std::string(INIT_CONSTRUCTOR) + std::string("High"));
 	else if (grade >= 1 && grade <= 150)
 		this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.getName())
 {
-	this->grade = obj.getGrade();
+	if (obj.grade > 150)
+		throw Bureaucrat::GradeTooLowException(std::string(ERROR)
+				+ std::string(COPY_CONSTRUCTOR) + std::string("Low"));
+	if (obj.grade < 1)
+		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+				+ std::string(COPY_CONSTRUCTOR) + std::string("High"));
+	else if (obj.grade >= 1 && obj.grade <= 150)
+		this->grade = obj.getGrade();
 }
 
 Bureaucrat::~Bureaucrat(void)
@@ -108,9 +79,33 @@ int	Bureaucrat::IncrementGrade(int increment)
 
 int Bureaucrat::DecrementGrade(int decrement)
 {
-	this->grade += decrement;
-	return (decrement);
+	if (decrement < 1)
+    {
+        throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+                + std::string(DECREMENT) + std::string("High"));
+    }
+    else
+    {
+        this->grade += decrement;
+		if (this->grade > 150)
+        {
+        	throw Bureaucrat::GradeTooLowException(std::string(ERROR)
+            	+ std::string(DECREMENT) + std::string("Low"));
+        }
+    }
+    return (this->grade);
 }
+
+/*
+ * Exception Classes
+*/
+Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string &msg)
+    : std::range_error(msg)
+{}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string &msg)
+    : std::range_error(msg)
+{}
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj)
 {

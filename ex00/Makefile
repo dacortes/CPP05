@@ -6,7 +6,7 @@
 #    By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 08:47:28 by dacortes          #+#    #+#              #
-#    Updated: 2024/03/06 16:50:58 by dacortes         ###   ########.fr        #
+#    Updated: 2024/03/07 15:50:03 by dacortes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME = Bureaucrat
 CPP = c++
 FLAGS = -Wall -Werror -Wextra -g -pedantic -std=c++98 \
-	-fsanitize=address
+	#-fsanitize=address
 RM = rm -rf
 
 ################################################################################
