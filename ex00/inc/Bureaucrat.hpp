@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/06 15:51:12 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:06:24 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ class  Bureaucrat
 		unsigned short int	grade;
 	public:
 		/*
+		 * Exception Classes
+		*/
+	//	class	GradeTooHighException;
+	//	class	GradeTooLowException;
+		    class GradeTooLowException: public std::range_error {
+    public:
+        GradeTooLowException(const std::string &message);
+    };
+
+    class GradeTooHighException: public std::range_error {
+    public:
+        GradeTooHighException(const std::string &message);
+    };
+		/*
 		 * Orthodox Canonical Form
 		*/
 		Bureaucrat(void);
@@ -60,7 +74,7 @@ class  Bureaucrat
 		unsigned short int getGrade(void) const;
 		/*
 		 * Membert Funtions
-		 */
+		*/
 		int	IncrementGrade(int increment);
 		int	DecrementGrade(int decrement);
 };
