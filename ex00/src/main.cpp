@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 18:00:08 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:14:43 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,11 +137,55 @@ void	error_grade_high(void)
     }
 }
 
+void	loop_test_grade_high(void)
+{
+	Bureaucrat foo("dacortes", 150);
+
+    std::cout << C << "Test loop: increment" << E << std::endl;
+    int dec = 1;
+    try
+    {
+        while (foo.getGrade() != 1)
+        {
+            dec = foo.IncrementGrade(1);
+            std::cout << foo << std::endl;
+        }
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+}
+
+void	loop_test_grade_low(void)
+{
+
+	Bureaucrat foo("dacortes", 1);
+
+    std::cout << C << "Test loop: decrement" << E << std::endl;
+    int dec = 1;
+    try
+    {
+        while (foo.getGrade() != 150)
+        {
+            dec = foo.DecrementGrade(1);
+            std::cout << foo << std::endl;
+        }
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+}
+
+
 int	main(void)
 {
 	error_init_constructor();
 	//loop_error_grade_low();
 	//loop_error_grade_high();
+	//loop_test_grade_high();
+	//loop_test_grade_low();
 	//error_grade_low();
 	//error_grade_high();
 	return (EXIT_SUCCESS);
