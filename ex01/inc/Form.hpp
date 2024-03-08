@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:03:00 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/08 10:34:47 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:26:12 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Form
 		/*
 		 * Membert Funtions
 		*/
-		void	beSigned(const Bureaucrat &bureucrat);
+		void	beSigned(const Bureaucrat &bureaucrat);
 		/*
 		 * Exception Classes
 		*/
