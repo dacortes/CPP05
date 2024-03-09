@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:03:00 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/09 10:30:08 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/09 10:39:41 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class Form
 		bool				isSigned;
 		const unsigned int	signGrade;
 		const unsigned int	execGrade;
-		void checker(unsigned int verify, std::string msg);
 	public:
 		/*
 		 * Orthodox Canonical Form
@@ -50,6 +49,8 @@ class Form
 		/*
 		 * Membert Funtions
 		*/
+		void	checker(unsigned int verify, unsigned int min, unsigned int max,
+				std::string msg);
 		void	beSigned(const Bureaucrat &bureaucrat);
 		/*
 		 * Exception Classes
