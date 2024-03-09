@@ -6,36 +6,51 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:54:26 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/08 11:37:42 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/09 10:29:50 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 
+Form::checker(unsigned int verify, unsigned int min, unsigned int max,
+		std::string msg)
+{
+	if (verify > min)
+		throw Form::GradeTooLowException(std::string(ERROR)
+				+ msg + std::string("Low"));
+	if (verify < max)
+		throw Form::GradeTooHighException(std::string(ERROR)
+				+ msg + std::string("High"));
+}
+
 /*
  * Orthodox Canonical Form
 */
 
-Form::Form(void): name("default")
+Form::Form(void): name("default"), isSigned(false), signGrade(MIN_GRADE)
+				  execGrade(MIN_GRADE)
 {
 	std::cout << F << "Form: " << E << "Default constrcutor called"
 		<< std::endl;
-	this->isSigned = false;
-	this->signGrade = 150;
-	this->execGrade = 150;
 }
 
 Form::Form(std::string defname, unsigned int def_sign, unsigned int def_exec): \
 		name(defname), isSigned(false), signGrade(def_sign), execGrade(def_exec)
 {
-	
+	checker(def_sign, MIN_GRADE, MAX_GRADE, std::string(INIT_CONSTRUCTOR
+				+ "Sign grade: "));
+	checker(def_exec, MIN_GRADE, MAX_GRADE, std::string(INIT_CONSTRUCTOR
+				+ "Exec grade: "));
 }
 
-Form::Form(const Form &obj): name(obj.getName())
+Form::Form(const Form &obj): name(obj.getName()),
+	signGrade(obj.getSignGrade()), execGrade(obj.getExcecGrade())
 {
-	this->isSigned = obj.getIsSigned(void);
-	this->signGrade = obj.getSignGrade(void);
-	this->execGrade = obj.getExcecGrade(void);
+	checker(obj.getSignGrade(), MIN_GRADE, MAX_GRADE,
+			std::string(COPY_CONSTRUCTOR + "Sign grade"));
+	checker(obj.getExcecGrade(), MIN_GRADE, MAX_GRADE,
+			std::string(COPY_CONSTRUCTOR + "Exec grade"));
+	this->isSigned = obj.getIsSigned();
 }
 
 Form &Form::operator=(const Form &obj)
@@ -55,7 +70,13 @@ Form::~Form(void)
 */
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
-
+	checker(bureaucrat.getGrade(), this->getSignGrade(), MAX_GRADE,
+	std::string(bureaucrat.getName() + "couldn’t sign" +  this->getName()
+	+ "because invalid sing gradei: "));
+	if (this->isSigned)
+		throw Form::IsSignedException(std::string( this->getName()
+		+ ": it's already signed"));
+	this->isSigned = true;
 }
 
 Form::GradeTooLowException::GradeTooLowException(const std::string &msg)
@@ -64,6 +85,10 @@ Form::GradeTooLowException::GradeTooLowException(const std::string &msg)
 
 Form::GradeTooHighException::GradeTooHighException(const std::string &msg)
 	: std::range_error(msg)
+{}
+
+Form::IsSignedException::IsSignedException(const std::string &msg)
+	: std::logic_error(msg)
 {}
 
 std::ostream &operator<<(std::ostream &os, const Form &obj)
