@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 08:56:42 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:30:20 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,28 @@ void	form_error_init_constructor(void)
 	delete foo;
 }
 
+void error_sign_form(void)
+{
+	Form *foo;
+	Bureaucrat *fuu;
+	Bureaucrat *fiu;
+
+	try
+	{
+		foo = new Form("patata", 100, 100);
+		fuu = new Bureaucrat("dacortes", 1);
+		fiu = new Bureaucrat("eralonso", 1);
+		foo->beSigned(*fuu);
+		foo->beSigned(*fiu);
+	}
+	catch (std::logic_error &error)
+	{
+		std::cout << error.what() << std::endl;
+		delete foo;
+		delete fuu;
+		delete fiu;
+	}
+}
 
 int	main(void)
 {
@@ -227,6 +249,7 @@ int	main(void)
 	*/
 	//line: 179
 	form_error_init_constructor();
-
+	//line: 205
+	error_sign_form();
 	return (EXIT_SUCCESS);
 }
