@@ -6,11 +6,11 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 18:26:48 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:56:42 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 void	error_init_constructor(void)
 {
@@ -176,15 +176,57 @@ void	loop_test_grade_low(void)
     }
 }
 
+void	form_error_init_constructor(void)
+{
+	Form	*foo;	
+	std::cout << C << "Test Form: Error: Init constructor" << E << std::endl;
+	try
+	{
+		foo = new Form("patata", 151, 0);
+	}
+	catch (std::range_error &error)
+	{
+		std::cout << error.what() << std::endl;
+	}
+	try
+	{
+		foo = new Form("patata", -1, -1);
+	}
+	catch (std::range_error &error)
+	{
+		std::cout << error.what() << std::endl;
+	}
+	std::cout << C << "Test Form: Init constructor" << E << std::endl;
+	foo = new Form("patata", 100, 100);
+	std::cout << *foo << std::endl;
+	delete foo;
+}
+
 
 int	main(void)
 {
-	error_init_constructor();
+	/*
+	 * Test Bureaucrat
+	*/
+	//line: 15
+	//error_init_constructor();
+	//line: 42
 	//loop_error_grade_low();
+	//line:63
 	//loop_error_grade_high();
+	//line: 91
 	//loop_test_grade_high();
+	//line: 112
 	//loop_test_grade_low();
+	//line: 140
 	//error_grade_low();
+	//line: 159
 	//error_grade_high();
+	/*
+	 * Test Form
+	*/
+	//line: 179
+	form_error_init_constructor();
+
 	return (EXIT_SUCCESS);
 }

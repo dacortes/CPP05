@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:54:26 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/09 11:51:39 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:07:11 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,9 @@ Form::IsSignedException::IsSignedException(const std::string &msg)
 std::ostream &operator<<(std::ostream &os, const Form &obj)
 {
 	os << F << "Name: " << E << obj.getName() << "\n"
-		<< F << "status signed: " << E << (obj.getIsSigned() ? "true" : false)
-		<< "\n"
+		<< F << "status signed: " << E <<
+		std::string(obj.getIsSigned() ? "true" : "false") << "\n"
 		<< F << "sign grade: " << E << obj.getSignGrade() << "\n"
-		<< F << "exec grade: " << E << obj.getExecGrade() << std::endl;
+		<< F << "exec grade: " << E << obj.getExecGrade();
 	return (os);
 }
