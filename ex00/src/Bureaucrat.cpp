@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:05:02 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 17:58:49 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:20:20 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,19 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.getName())
 				+ std::string(COPY_CONSTRUCTOR) + std::string("High"));
 	else if (obj.grade >= 1 && obj.grade <= 150)
 		this->grade = obj.getGrade();
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
+{
+	if (obj.grade > 150)
+		throw Bureaucrat::GradeTooLowException(std::string(ERROR)
+				+ std::string(COPY_CONSTRUCTOR) + std::string("Low"));
+	if (obj.grade < 1)
+		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+				+ std::string(COPY_CONSTRUCTOR) + std::string("High"));
+	else if (obj.grade >= 1 && obj.grade <= 150)
+		this->grade = obj.getGrade();
+	return (*this);
 }
 
 Bureaucrat::~Bureaucrat(void)

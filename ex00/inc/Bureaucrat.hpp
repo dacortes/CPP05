@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/07 18:18:44 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:29:22 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ class  Bureaucrat
 		class GradeTooLowException: public std::range_error
 		{
 			public:
-        	GradeTooLowException(const std::string &msg);
+        		GradeTooLowException(const std::string &msg);
     	};
 		class GradeTooHighException: public std::range_error
 		{
     		public:
-        	GradeTooHighException(const std::string &msg);
+        		GradeTooHighException(const std::string &msg);
     	};
 };
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
