@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:02:16 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 17:41:15 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/13 08:50:25 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 /*                            CLASS                                           */
 /******************************************************************************/
 
-class RobotomyRequestForm
+class RobotomyRequestForm: public AForm
 {
 	private:
 		std::string target;
@@ -40,4 +40,5 @@ class RobotomyRequestForm
 		*/
 		std::string getTarget(void) const;
 };
+std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &obj);
 #endif

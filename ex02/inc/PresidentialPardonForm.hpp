@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:13:33 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 17:41:19 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/13 08:55:12 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 /*                            CLASS                                           */
 /******************************************************************************/
 
-class PresidentialPardonForm
+class PresidentialPardonForm:  public AForm
 {
 	private:
 		std::string target;
@@ -40,4 +40,5 @@ class PresidentialPardonForm
 		*/
 		std::string getTarget(void) const;
 };
+std::ostream &operator<<(std::ostream &os, const PresidentialPardonForm &obj);
 #endif

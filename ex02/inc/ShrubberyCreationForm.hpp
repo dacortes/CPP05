@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:27:03 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 18:25:28 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/13 09:15:27 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 /******************************************************************************/
 /*                            CLASS                                           */
 /******************************************************************************/
+
+# define NAME_SCF "ShrubberyCreationForm: "
+# define SING_SCF 145
+# define EXEC_SCF 137
 
 class ShrubberyCreationForm: public AForm
 {
@@ -39,6 +43,7 @@ class ShrubberyCreationForm: public AForm
 		 * Get Methods
 		*/
 		std::string getTarget(void) const;
+		void executeForm(const Bureaucrat &obj) const;
 };
-std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm&obj);
+std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &obj);
 #endif
