@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/13 19:25:03 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:40:19 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 int	main(void)
 {
-	ShrubberyCreationForm foo;
+	ShrubberyCreationForm foo("dacortes", "frangark");
 
 	std::cout << foo << std::endl;
+	foo.executeForm();
 	return (EXIT_SUCCESS);
 }

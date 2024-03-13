@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:27:03 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/13 19:27:44 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:40:21 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class ShrubberyCreationForm: public AForm
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(const ShrubberyCreationForm &obj);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
+		ShrubberyCreationForm(std::string defname, std::string deftarget);
 		~ShrubberyCreationForm(void);
 		/*
 		 * Get Methods

@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:42:53 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/13 19:29:11 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:39:42 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator= \
 	AForm::operator=(obj);
 	this->target = obj.target;
 	return (*this);
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string defname,\
+std::string deftarget): AForm(defname, SING_SCF, EXEC_SCF)
+{
+	this->target = deftarget;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
