@@ -6,7 +6,7 @@
 #    By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 08:47:28 by dacortes          #+#    #+#              #
-#    Updated: 2024/03/11 14:31:40 by dacortes         ###   ########.fr        #
+#    Updated: 2024/03/13 19:21:49 by dacortes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RM = rm -rf
 #                               SOURCES                                        #
 ################################################################################
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
 INC = $(addprefix -I , inc/)
 
 ################################################################################

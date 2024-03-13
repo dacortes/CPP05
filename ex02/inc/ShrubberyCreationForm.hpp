@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:27:03 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/13 09:15:27 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:27:44 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 /*                            INCLUDES                                        */
 /******************************************************************************/
 
-#include "AForm.hpp"
+# include "AForm.hpp"
+# include <fstream>
 
 /******************************************************************************/
 /*                            CLASS                                           */
@@ -37,13 +38,13 @@ class ShrubberyCreationForm: public AForm
 		*/
 		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(const ShrubberyCreationForm &obj);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj)
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
 		~ShrubberyCreationForm(void);
 		/*
 		 * Get Methods
 		*/
 		std::string getTarget(void) const;
-		void executeForm(const Bureaucrat &obj) const;
+		void executeForm(void) const;
 };
 std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &obj);
 #endif
