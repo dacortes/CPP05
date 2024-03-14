@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:33:49 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/14 14:02:43 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/14 18:14:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ RobotomyRequestForm &RobotomyRequestForm::operator= \
 	return (*this);
 }
 
+RobotomyRequestForm::RobotomyRequestForm\
+(std::string defname, std::string deftarget):AForm(defname, SING_RRF, EXEC_RRF)
+{
+	this->target = deftarget;
+}
+
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {
 	std::cout << Y << NAME_RRF << E <<  "Destructor called" << std::endl;
@@ -52,7 +58,7 @@ std::string RobotomyRequestForm::getTarget(void) const
 
 void	RobotomyRequestForm::executeForm(void) const
 {
-	srand(0);
+	srand(clock());
 
 	double robotomized = rand() / (double)RAND_MAX;
 	if (robotomized < 0.5)
@@ -65,5 +71,11 @@ void	RobotomyRequestForm::executeForm(void) const
 
 std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &obj)
 {
+	os << Y << "Name: " << E << obj.getName() << "\n"
+		<< Y << "Target: " << E << obj.getTarget() << "\n"
+		<< Y << "status signed: " << E <<
+		(obj.getIsSigned() ? "true" : "false") << "\n"
+		<< Y << "sign grade: " << E << obj.getSignGrade() << "\n"
+		<< Y << "exec grade: " << E << obj.getExecGrade();
 	return (os);
 }

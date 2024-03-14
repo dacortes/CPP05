@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:02:16 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/14 13:36:36 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/14 18:13:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /******************************************************************************/
 
 #include "AForm.hpp"
+#include <time.h>
 
 /******************************************************************************/
 /*                            CLASS                                           */
@@ -38,6 +39,7 @@ class RobotomyRequestForm: public AForm
 		RobotomyRequestForm(void);
 		RobotomyRequestForm(const RobotomyRequestForm &obj);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
+		RobotomyRequestForm(std::string defname, std::string deftarget);
 		~RobotomyRequestForm(void);
 		/*
 		 * Get Methods
