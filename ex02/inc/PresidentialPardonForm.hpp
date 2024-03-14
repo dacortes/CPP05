@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:13:33 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/13 08:55:12 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:47:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 /******************************************************************************/
 /*                            CLASS                                           */
 /******************************************************************************/
+
+# define NAME_PPF "PresidentialPardonForm: "
+# define SING_RRF 25
+# define EXEC_RRF 5
 
 class PresidentialPardonForm:  public AForm
 {
