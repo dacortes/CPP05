@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:42:53 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/13 19:39:42 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:50:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ std::string ShrubberyCreationForm::getTarget(void) const
 void	ShrubberyCreationForm::executeForm(void) const
 {
 	std::fstream fd;
+	std::string name;
 
-	fd.open(this->target + "_shrubbery", std::ios_base::out);
+	name = this->target + "_shrubbery";
+	fd.open(name.c_str(), std::ios_base::out);
 	if (!fd.is_open())
 	{
 		std::cerr << R "Error: " << E << "creating file: "
