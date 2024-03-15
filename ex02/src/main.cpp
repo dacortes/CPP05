@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:01:36 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:28:57 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	testShrubberyCreationForm(void)
 {
-	ShrubberyCreationForm	*foo;
+	AForm *foo;
 	
 	std::cout << C << "---------------------------------" << E << std::endl;
 	std::cout << C << "Test: ShrubberyCreationForm" << E << std::endl;
@@ -26,9 +26,9 @@ void	testShrubberyCreationForm(void)
 	try
 	{
 		Bureaucrat	fuu("eralonso", 150);
-		foo = new ShrubberyCreationForm("patata", "queso");
+		foo = new ShrubberyCreationForm("queso");
 		foo->beSigned(fuu);
-		foo->executeForm();
+		dynamic_cast<ShrubberyCreationForm*>(foo)->executeForm();
 	}
 	catch(const std::exception &error)
 	{
@@ -39,10 +39,10 @@ void	testShrubberyCreationForm(void)
 	try
 	{
 		Bureaucrat fuu("eralonso", 145);
-		foo = new ShrubberyCreationForm("dacortes", "frangark");
+		foo = new ShrubberyCreationForm("frangark");
 		foo->beSigned(fuu);
-		std::cout << *foo << std::endl;
-		foo->executeForm();
+		std::cout << *dynamic_cast<ShrubberyCreationForm*>(foo) << std::endl;
+		dynamic_cast<ShrubberyCreationForm*>(foo)->executeForm();
 	}
 	catch(const std::exception &error)
 	{

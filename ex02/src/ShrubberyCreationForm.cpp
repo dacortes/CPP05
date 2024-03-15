@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:42:53 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/14 11:50:55 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/15 16:32:48 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator= \
 	return (*this);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string defname,\
-std::string deftarget): AForm(defname, SING_SCF, EXEC_SCF)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string deftarget):\
+AForm(NAME_SCF, SING_SCF, EXEC_SCF)
 {
 	this->target = deftarget;
 }
