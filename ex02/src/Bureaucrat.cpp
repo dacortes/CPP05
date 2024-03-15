@@ -127,6 +127,11 @@ int Bureaucrat::DecrementGrade(int decrement)
     return (this->grade);
 }
 
+void	Bureaucrat::executeForm(AForm const & form) const
+{
+	
+}
+
 /*
  * Exception Classes
 */

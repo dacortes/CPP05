@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:54:26 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 15:46:20 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:34:48 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,18 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	checker(bureaucrat.getGrade(), this->getSignGrade(), MAX_GRADE,
 	std::string(bureaucrat.getName() + "couldn’t sign" +  this->getName()
-	+ "because invalid sing gradei: "));
+	+ "because invalid sing grade: "));
 	if (this->isSigned)
 		throw AForm::IsSignedException(std::string( this->getName()
 		+ ": it's already signed"));
 	this->isSigned = true;
+}
+void	AForm::execute(Bureaucrat const & executor) const
+{
+	check(executor.getGrade, this->execGrade, MAX_GRADE,
+	std::string(executor.getName() + "couldn’t execute" +  this->getName()
+	+ "because invalid sing grade: "));
+
 }
 
 AForm::GradeTooLowException::GradeTooLowException(const std::string &msg)

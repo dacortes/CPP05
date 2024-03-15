@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/09 10:30:22 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:34:46 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ class  Bureaucrat
 		/*
 		 * Membert Funtions
 		*/
-		int	IncrementGrade(int increment);
-		int	DecrementGrade(int decrement);
+		int		IncrementGrade(int increment);
+		int		DecrementGrade(int decrement);
+		void	executeForm(AForm const & form) const;
 		/*
 		 * Exception Classes
 		*/

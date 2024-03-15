@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:03:00 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 18:25:26 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:34:44 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ class AForm
 		void	checker(unsigned int verify, unsigned int min, unsigned int max,
 				std::string msg);
 		void	beSigned(const Bureaucrat &bureaucrat);
+		void	execute(Bureaucrat const & executor) const;
 		/*
 		 * Exception Classes
 		*/
