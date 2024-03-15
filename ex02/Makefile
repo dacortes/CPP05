@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 08:47:28 by dacortes          #+#    #+#              #
-#    Updated: 2024/03/14 16:57:58 by codespace        ###   ########.fr        #
+#    Updated: 2024/03/15 12:53:44 by dacortes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ RM = rm -rf
 ################################################################################
 
 SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-	RobotomyRequestForm.cpp
+	RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 INC = $(addprefix -I , inc/)
 
 ################################################################################
