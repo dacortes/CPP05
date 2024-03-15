@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:33:49 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 12:39:58 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:39:27 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator= \
 }
 
 RobotomyRequestForm::RobotomyRequestForm\
-(std::string defname, std::string deftarget):AForm(defname, SING_RRF, EXEC_RRF)
+(std::string deftarget):AForm(NAME_RRF, SING_RRF, EXEC_RRF)
 {
 	this->target = deftarget;
 }

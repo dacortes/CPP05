@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:28:57 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:46:18 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	testShrubberyCreationForm(void)
 
 void testRobotomyRequestForm (void)
 {
-	RobotomyRequestForm *foo;
+	AForm *foo;
 
 	std::cout << C << "---------------------------------" << E << std::endl;
 	std::cout << C << "Test: RobotomyRequestForm" << E << std::endl;
@@ -63,9 +63,9 @@ void testRobotomyRequestForm (void)
 	try
 	{
 		Bureaucrat	fuu("eralonso", 73);
-		foo = new RobotomyRequestForm("queso", "patata");
+		foo = new RobotomyRequestForm("patata");
 		foo->beSigned(fuu);
-		foo->executeForm();
+		dynamic_cast<RobotomyRequestForm*>(foo)->executeForm();
 	}
 	catch(const std::exception &error)
 	{
@@ -73,13 +73,13 @@ void testRobotomyRequestForm (void)
 		delete foo;
 	}
 	std::cout << C << "Test: Grade: Bureaucrat" << E << std::endl;
-		try
+	try
 	{
 		Bureaucrat fuu("eralonso", SING_RRF);
-		foo = new RobotomyRequestForm("dacortes", "frangark");
+		foo = new RobotomyRequestForm("frangark");
 		foo->beSigned(fuu);
-		std::cout << *foo << std::endl;
-		foo->executeForm();
+		std::cout << *dynamic_cast<RobotomyRequestForm*>(foo) << std::endl;
+		dynamic_cast<RobotomyRequestForm*>(foo)->executeForm();
 	}
 	catch(const std::exception &error)
 	{
@@ -128,11 +128,11 @@ void	testPresidentialPardonForm(void)
 
 int	main(void)
 {
-	//line 16
+	//line 18
 	testShrubberyCreationForm();
-	//line 52
+	//line 55
 	testRobotomyRequestForm();
-	//line 86
+	//line 92 
 	testPresidentialPardonForm();
 	return (EXIT_SUCCESS);
 }

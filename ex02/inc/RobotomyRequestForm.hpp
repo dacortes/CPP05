@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:02:16 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/14 18:13:32 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/15 16:48:35 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,17 @@ class RobotomyRequestForm: public AForm
 {
 	private:
 		std::string target;
+		/*
+		 * Orthodox Canonical Formi: Default constructor
+		*/
+		RobotomyRequestForm(void);
 	public:
 		/*
 		 * Orthodox Canonical Form
 		*/
-		RobotomyRequestForm(void);
 		RobotomyRequestForm(const RobotomyRequestForm &obj);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
-		RobotomyRequestForm(std::string defname, std::string deftarget);
+		RobotomyRequestForm(std::string deftarget);
 		~RobotomyRequestForm(void);
 		/*
 		 * Get Methods
