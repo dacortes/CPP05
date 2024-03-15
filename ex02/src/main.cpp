@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:46:18 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:58:01 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	testShrubberyCreationForm(void)
 	std::cout << C << "---------------------------------" << E << std::endl;
 	try
 	{
-		Bureaucrat	fuu("eralonso", 150);
+		Bureaucrat	fuu("eralonso ", 150);
 		foo = new ShrubberyCreationForm("queso");
 		foo->beSigned(fuu);
 		dynamic_cast<ShrubberyCreationForm*>(foo)->executeForm();
@@ -38,7 +38,7 @@ void	testShrubberyCreationForm(void)
 	std::cout << C << "Test: Grade: Bureaucrat" << E << std::endl;
 	try
 	{
-		Bureaucrat fuu("eralonso", 145);
+		Bureaucrat fuu("eralonso ", 145);
 		foo = new ShrubberyCreationForm("frangark");
 		foo->beSigned(fuu);
 		std::cout << *dynamic_cast<ShrubberyCreationForm*>(foo) << std::endl;
@@ -62,7 +62,7 @@ void testRobotomyRequestForm (void)
 	std::cout << C << "---------------------------------" << E << std::endl;
 	try
 	{
-		Bureaucrat	fuu("eralonso", 73);
+		Bureaucrat	fuu("eralonso ", 73);
 		foo = new RobotomyRequestForm("patata");
 		foo->beSigned(fuu);
 		dynamic_cast<RobotomyRequestForm*>(foo)->executeForm();
@@ -75,7 +75,7 @@ void testRobotomyRequestForm (void)
 	std::cout << C << "Test: Grade: Bureaucrat" << E << std::endl;
 	try
 	{
-		Bureaucrat fuu("eralonso", SING_RRF);
+		Bureaucrat fuu("eralonso ", SING_RRF);
 		foo = new RobotomyRequestForm("frangark");
 		foo->beSigned(fuu);
 		std::cout << *dynamic_cast<RobotomyRequestForm*>(foo) << std::endl;
@@ -91,7 +91,7 @@ void testRobotomyRequestForm (void)
 
 void	testPresidentialPardonForm(void)
 {
-	PresidentialPardonForm *foo;
+	AForm *foo;
 
 	std::cout << C << "---------------------------------" << E << std::endl;
 	std::cout << C << "Test: PresidentialPardonForm" << E << std::endl;
@@ -99,10 +99,10 @@ void	testPresidentialPardonForm(void)
 	std::cout << C << "---------------------------------" << E << std::endl;
 	try
 	{
-		Bureaucrat	fuu("eralonso", 26);
-		foo = new PresidentialPardonForm("queso", "patata");
+		Bureaucrat	fuu("eralonso ", 26);
+		foo = new PresidentialPardonForm("patata");
 		foo->beSigned(fuu);
-		foo->executeForm();
+		dynamic_cast<PresidentialPardonForm*>(foo)->executeForm();
 	}
 	catch(const std::exception &error)
 	{
@@ -112,11 +112,11 @@ void	testPresidentialPardonForm(void)
 	std::cout << C << "Test: Grade: Bureaucrat" << E << std::endl;
 	try
 	{
-		Bureaucrat fuu("eralonso", SING_PPF);
-		foo = new PresidentialPardonForm("dacortes", "frangark");
+		Bureaucrat fuu("eralonso ", SING_PPF);
+		foo = new PresidentialPardonForm("frangark");
 		foo->beSigned(fuu);
-		std::cout << *foo << std::endl;
-		foo->executeForm();
+		std::cout << *dynamic_cast<PresidentialPardonForm*>(foo) << std::endl;
+		dynamic_cast<PresidentialPardonForm*>(foo)->executeForm();
 	}
 	catch(const std::exception &error)
 	{

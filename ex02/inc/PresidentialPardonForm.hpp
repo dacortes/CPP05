@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:13:33 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:04:46 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:58:03 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,17 @@ class PresidentialPardonForm:  public AForm
 {
 	private:
 		std::string target;
+		/*
+		 * Orthodox Canonical AForm: Default constructor
+		*/
+		PresidentialPardonForm(void);
 	public:
 		/*
 		 * Orthodox Canonical AForm
 		*/
-		PresidentialPardonForm(void);
 		PresidentialPardonForm(const PresidentialPardonForm &obj);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &obj);
-		PresidentialPardonForm(std::string defname, std::string deftarget);
+		PresidentialPardonForm(std::string deftarget);
 		~PresidentialPardonForm(void);
 		/*
 		 * Get Methods

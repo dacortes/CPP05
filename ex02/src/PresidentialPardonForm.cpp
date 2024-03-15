@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:33:49 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:04:44 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:53:28 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator= \
 }
 
 PresidentialPardonForm::PresidentialPardonForm\
-(std::string defname, std::string deftarget): AForm(defname, SING_PPF, EXEC_PPF)
+(std::string deftarget): AForm(NAME_PPF, SING_PPF, EXEC_PPF)
 {
 	this->target = deftarget;
 }
