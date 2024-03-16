@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:03:00 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 18:34:44 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:31:09 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@
 /******************************************************************************/
 
 # include "Bureaucrat.hpp"
+# include <string>
+# include <iostream>
 
 /******************************************************************************/
 /*                            CLASS                                           */
 /******************************************************************************/
+
+class Bureaucrat;
 
 class AForm
 {
@@ -50,9 +54,10 @@ class AForm
 		 * Membert Funtions
 		*/
 		void	checker(unsigned int verify, unsigned int min, unsigned int max,
-				std::string msg);
+				std::string msg) const;
 		void	beSigned(const Bureaucrat &bureaucrat);
-		void	execute(Bureaucrat const & executor) const;
+		void	execute(const Bureaucrat &executor) const;
+		virtual void executeMagic(void) const = 0;
 		/*
 		 * Exception Classes
 		*/

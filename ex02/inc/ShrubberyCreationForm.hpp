@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:27:03 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:32:41 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:28:38 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class ShrubberyCreationForm: public AForm
 		 * Get Methods
 		*/
 		std::string getTarget(void) const;
-		void executeForm(void) const;
+		void executeMagic(void) const;
 };
 std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &obj);
 #endif

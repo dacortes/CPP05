@@ -127,9 +127,18 @@ int Bureaucrat::DecrementGrade(int decrement)
     return (this->grade);
 }
 
-void	Bureaucrat::executeForm(AForm const & form) const
+void	Bureaucrat::executeForm(const AForm &form) const
 {
-	
+	try
+	{
+		std::cout << SUCCESS << this->name << " execute " << form.getName()
+			<< std::endl;
+	}
+	catch (std::logic_error &error)
+	{
+		std::cout << ERROR << this->name << " couldn't execute "
+			<< form.getName() << " because " << error.what() << std::endl;
+	}	
 }
 
 /*

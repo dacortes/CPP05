@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:42:53 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:32:48 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:31:29 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ std::string ShrubberyCreationForm::getTarget(void) const
 	return (this->target);
 }
 
-void	ShrubberyCreationForm::executeForm(void) const
+void	ShrubberyCreationForm::executeMagic(void) const
 {
 	std::fstream fd;
 	std::string name;

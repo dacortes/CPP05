@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:54:26 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 18:34:48 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:26:25 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ unsigned int AForm::getExecGrade(void) const
 */
 
 void AForm::checker(unsigned int verify, unsigned int min, unsigned int max,
-		std::string msg)
+		std::string msg) const
 {
 	if (verify > min)
 		throw AForm::GradeTooLowException(std::string(ERROR)
@@ -108,12 +108,12 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 		+ ": it's already signed"));
 	this->isSigned = true;
 }
-void	AForm::execute(Bureaucrat const & executor) const
+void	AForm::execute(const Bureaucrat &executor) const
 {
-	check(executor.getGrade, this->execGrade, MAX_GRADE,
+	checker(executor.getGrade(), this->execGrade, MAX_GRADE,
 	std::string(executor.getName() + "couldn’t execute" +  this->getName()
 	+ "because invalid sing grade: "));
-
+	executeMagic();
 }
 
 AForm::GradeTooLowException::GradeTooLowException(const std::string &msg)

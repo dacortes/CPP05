@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:33:49 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:53:37 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:33:34 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ std::string RobotomyRequestForm::getTarget(void) const
 	return (this->target);
 }
 
-void	RobotomyRequestForm::executeForm(void) const
+void	RobotomyRequestForm::executeMagic(void) const
 {
 	srand(clock());
 

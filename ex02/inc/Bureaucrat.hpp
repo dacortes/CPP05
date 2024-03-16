@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 18:34:46 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:26:23 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 /*                            INCLUDES                                        */
 /******************************************************************************/
 
+# include "AForm.hpp"
 # include <string>
 # include <cstdlib>
 # include <iostream>
@@ -42,7 +43,8 @@
 # define MAX_GRADE	1
 # define MIN_GRADE	150
 
-# define ERROR				"\033[1m\033[1;31mError: \033[m" 
+# define ERROR				"\033[1m\033[1;31mError: \033[m"
+# define SUCCESS			"\033[1m\033[1;32mSuccess: \033[m"
 # define INIT_CONSTRUCTOR	"Init constructor: out of range: "
 # define COPY_CONSTRUCTOR	"Copy constructor: out of range: "
 # define SET_GRADE			"SetGrade: out of range: "
@@ -52,6 +54,8 @@
 /******************************************************************************/
 /*                            CLASS                                           */
 /******************************************************************************/
+
+class AForm;
 
 class  Bureaucrat
 {
@@ -77,7 +81,7 @@ class  Bureaucrat
 		*/
 		int		IncrementGrade(int increment);
 		int		DecrementGrade(int decrement);
-		void	executeForm(AForm const & form) const;
+		void	executeForm(const AForm &form) const;
 		/*
 		 * Exception Classes
 		*/

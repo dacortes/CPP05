@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:13:33 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:58:03 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:34:59 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class PresidentialPardonForm:  public AForm
 		 * Get Methods
 		*/
 		std::string getTarget(void) const;
-		void executeForm(void) const;
+		void executeMagic(void) const;
 };
 std::ostream &operator<<(std::ostream &os, const PresidentialPardonForm &obj);
 #endif

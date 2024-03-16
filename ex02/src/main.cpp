@@ -6,11 +6,12 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:58:01 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:34:58 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/AForm.hpp"
+#include "../inc/Bureaucrat.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
 #include "../inc/PresidentialPardonForm.hpp"
@@ -28,7 +29,7 @@ void	testShrubberyCreationForm(void)
 		Bureaucrat	fuu("eralonso ", 150);
 		foo = new ShrubberyCreationForm("queso");
 		foo->beSigned(fuu);
-		dynamic_cast<ShrubberyCreationForm*>(foo)->executeForm();
+		dynamic_cast<ShrubberyCreationForm*>(foo)->executeMagic();
 	}
 	catch(const std::exception &error)
 	{
@@ -42,7 +43,7 @@ void	testShrubberyCreationForm(void)
 		foo = new ShrubberyCreationForm("frangark");
 		foo->beSigned(fuu);
 		std::cout << *dynamic_cast<ShrubberyCreationForm*>(foo) << std::endl;
-		dynamic_cast<ShrubberyCreationForm*>(foo)->executeForm();
+		dynamic_cast<ShrubberyCreationForm*>(foo)->executeMagic();
 	}
 	catch(const std::exception &error)
 	{
@@ -65,7 +66,7 @@ void testRobotomyRequestForm (void)
 		Bureaucrat	fuu("eralonso ", 73);
 		foo = new RobotomyRequestForm("patata");
 		foo->beSigned(fuu);
-		dynamic_cast<RobotomyRequestForm*>(foo)->executeForm();
+		dynamic_cast<RobotomyRequestForm*>(foo)->executeMagic();
 	}
 	catch(const std::exception &error)
 	{
@@ -79,7 +80,7 @@ void testRobotomyRequestForm (void)
 		foo = new RobotomyRequestForm("frangark");
 		foo->beSigned(fuu);
 		std::cout << *dynamic_cast<RobotomyRequestForm*>(foo) << std::endl;
-		dynamic_cast<RobotomyRequestForm*>(foo)->executeForm();
+		dynamic_cast<RobotomyRequestForm*>(foo)->executeMagic();
 	}
 	catch(const std::exception &error)
 	{
@@ -102,7 +103,7 @@ void	testPresidentialPardonForm(void)
 		Bureaucrat	fuu("eralonso ", 26);
 		foo = new PresidentialPardonForm("patata");
 		foo->beSigned(fuu);
-		dynamic_cast<PresidentialPardonForm*>(foo)->executeForm();
+		dynamic_cast<PresidentialPardonForm*>(foo)->executeMagic();
 	}
 	catch(const std::exception &error)
 	{
@@ -116,7 +117,7 @@ void	testPresidentialPardonForm(void)
 		foo = new PresidentialPardonForm("frangark");
 		foo->beSigned(fuu);
 		std::cout << *dynamic_cast<PresidentialPardonForm*>(foo) << std::endl;
-		dynamic_cast<PresidentialPardonForm*>(foo)->executeForm();
+		dynamic_cast<PresidentialPardonForm*>(foo)->executeMagic();
 	}
 	catch(const std::exception &error)
 	{
@@ -128,11 +129,11 @@ void	testPresidentialPardonForm(void)
 
 int	main(void)
 {
-	//line 18
+	//line 19
 	testShrubberyCreationForm();
-	//line 55
+	//line 56
 	testRobotomyRequestForm();
-	//line 92 
+	//line 93 
 	testPresidentialPardonForm();
 	return (EXIT_SUCCESS);
 }

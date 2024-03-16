@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:02:16 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/15 16:51:00 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/16 10:32:45 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class RobotomyRequestForm: public AForm
 		 * Get Methods
 		*/
 		std::string getTarget(void) const;
-		void executeForm(void) const;
+		void executeMagic(void) const;
 };
 std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &obj);
 #endif
