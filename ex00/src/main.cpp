@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/20 17:02:01 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:40:50 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,28 +176,135 @@ void	loop_test_grade_low(void)
     }
 }
 
+void    number_zero_test(void)
+{
+    Bureaucrat foo("dacortes", 1);
+
+    std::cout << C << "Test number zero: increment" << E << std::endl;
+    try
+    {
+        foo.IncrementGrade(0);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    std::cout << C << "Test number zero: decrement" << E << std::endl;
+    try
+    {
+        foo.DecrementGrade(0);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    std::cout << foo << std::endl;
+}
+
+void number_negative_test(void)
+{
+    Bureaucrat foo("dacortes", 1);
+
+    std::cout << C << "Test number negative: increment" << E << std::endl;
+    try
+    {
+        foo.IncrementGrade(-2000);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    std::cout << C << "Test number negative: decrement" << E << std::endl;
+    try
+    {
+        foo.DecrementGrade(-2000);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    std::cout << foo << std::endl;
+}
+
+void number_positive_range(void)
+{
+    Bureaucrat foo("dacortes", 1);
+
+    std::cout << C << "Test positive: increment" << E << std::endl;
+    try
+    {
+        foo.IncrementGrade(2000);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    try
+    {
+        foo.IncrementGrade(150);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    try
+    {
+        foo.IncrementGrade(1);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    try
+    {
+        foo.IncrementGrade(4);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    std::cout << C << "Test number negative: decrement" << E << std::endl;
+    try
+    {
+        foo.DecrementGrade(2000);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    try
+    {
+        foo.DecrementGrade(150);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    std::cout << foo << std::endl;
+}
 
 int	main(void)
 {
 	// error_init_constructor();
-	loop_error_grade_low();
+	// loop_error_grade_low();
 	// loop_error_grade_high();
 	// loop_test_grade_high();
 	// loop_test_grade_low();
 	// error_grade_low();
 	// error_grade_high();
-    // Bureaucrat *foo;
-    // try
-    // {
-    //     foo = new Bureaucrat("dacortes", 150);
-    //     foo->IncrementGrade(0);
-    //     // foo->DecrementGrade(0);
-    //     std::cout << *foo << std::endl;
-    // }
-    // catch (std::range_error &error)
-    // {
-    //     std::cerr << error.what() << std::endl;
-    // }
-    // std::cout << *foo << std::endl;
+
+    //number_zero_test();
+    //number_negative_test();
+    number_positive_range();
 	return (EXIT_SUCCESS);
 }
