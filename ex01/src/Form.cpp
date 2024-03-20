@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:54:26 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 09:17:05 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/20 19:02:43 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,27 @@ Form::Form(void): name("default"), isSigned(false), signGrade(MIN_GRADE),
 Form::Form(std::string defname, unsigned int def_sign, unsigned int def_exec): \
 		name(defname), isSigned(false), signGrade(def_sign), execGrade(def_exec)
 {
-	checker(def_sign, MIN_GRADE, MAX_GRADE,
+	if (checker(def_sign, MIN_GRADE, MAX_GRADE,
 			std::string(std::string(INIT_CONSTRUCTOR)
-			+ std::string("Sign grade: ")));
-	checker(def_exec, MIN_GRADE, MAX_GRADE,
+			+ std::string("Sign grade: "))))
+			return ;
+	if (checker(def_exec, MIN_GRADE, MAX_GRADE,
 			std::string(std::string(INIT_CONSTRUCTOR)
-			+ std::string("Exec grade: ")));
+			+ std::string("Exec grade: "))))
+			return ;
 }
 
 Form::Form(const Form &obj): name(obj.getName()),
 	signGrade(obj.getSignGrade()), execGrade(obj.getExecGrade())
 {
-	checker(obj.getSignGrade(), MIN_GRADE, MAX_GRADE,
+	if (checker(obj.getSignGrade(), MIN_GRADE, MAX_GRADE,
 			std::string(std::string(COPY_CONSTRUCTOR)
-			+ std::string("Sign grade")));
-	checker(obj.getExecGrade(), MIN_GRADE, MAX_GRADE,
+			+ std::string("Sign grade"))))
+			return ;
+	if (checker(obj.getExecGrade(), MIN_GRADE, MAX_GRADE,
 			std::string(std::string(COPY_CONSTRUCTOR)
-			+ std::string("Exec grade")));
+			+ std::string("Exec grade"))))
+			return ;
 	this->isSigned = obj.getIsSigned();
 }
 
@@ -87,25 +91,35 @@ unsigned int Form::getExecGrade(void) const
  * Membet Funtions
 */
 
-void Form::checker(unsigned int verify, unsigned int min, unsigned int max,
+bool Form::checker(unsigned int verify, unsigned int min, unsigned int max,
 		std::string msg)
 {
 	if (verify > min)
+	{
 		throw Form::GradeTooLowException(std::string(ERROR)
 				+ msg + std::string("Low"));
+		return (EXIT_FAILURE);
+	}
 	if (verify < max)
+	{
 		throw Form::GradeTooHighException(std::string(ERROR)
 				+ msg + std::string("High"));
+		return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
 }
 
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	checker(bureaucrat.getGrade(), this->getSignGrade(), MAX_GRADE,
 	std::string(bureaucrat.getName() + "couldn’t sign" +  this->getName()
-	+ "because invalid sing gradei: "));
+	+ "because invalid sing grade: "));
 	if (this->isSigned)
+	{
 		throw Form::IsSignedException(std::string( this->getName()
 		+ ": it's already signed"));
+		return ;
+	}
 	this->isSigned = true;
 }
 

@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/20 18:40:50 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:45:37 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,6 +246,15 @@ void number_positive_range(void)
     }
     try
     {
+        foo.IncrementGrade(65385);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    try
+    {
         foo.IncrementGrade(150);
         std::cout << foo << std::endl;
     }
@@ -284,6 +293,15 @@ void number_positive_range(void)
     try
     {
         foo.DecrementGrade(150);
+        std::cout << foo << std::endl;
+    }
+    catch (const std::range_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
+    try
+    {
+        foo.DecrementGrade(65385);
         std::cout << foo << std::endl;
     }
     catch (const std::range_error &error)

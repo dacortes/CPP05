@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:03:00 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 13:32:23 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:57:53 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Form
 		/*
 		 * Membert Funtions
 		*/
-		void	checker(unsigned int verify, unsigned int min, unsigned int max,
+		bool	checker(unsigned int verify, unsigned int min, unsigned int max,
 				std::string msg);
 		void	beSigned(const Bureaucrat &bureaucrat);
 		/*
