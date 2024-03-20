@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/08 10:29:22 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:37:00 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@
 /******************************************************************************/
 /*                            MACROS                                          */
 /******************************************************************************/
+
+# define MAX_GRADE	1
+# define MIN_GRADE	150
 
 # define ERROR				"\033[1m\033[1;31mError: \033[m" 
 # define INIT_CONSTRUCTOR	"Init constructor: out of range: "

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/11 13:36:37 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:02:01 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,12 +179,25 @@ void	loop_test_grade_low(void)
 
 int	main(void)
 {
-	error_init_constructor();
-	//loop_error_grade_low();
-	//loop_error_grade_high();
-	//loop_test_grade_high();
-	//loop_test_grade_low();
-	//error_grade_low();
-	//error_grade_high();
+	// error_init_constructor();
+	loop_error_grade_low();
+	// loop_error_grade_high();
+	// loop_test_grade_high();
+	// loop_test_grade_low();
+	// error_grade_low();
+	// error_grade_high();
+    // Bureaucrat *foo;
+    // try
+    // {
+    //     foo = new Bureaucrat("dacortes", 150);
+    //     foo->IncrementGrade(0);
+    //     // foo->DecrementGrade(0);
+    //     std::cout << *foo << std::endl;
+    // }
+    // catch (std::range_error &error)
+    // {
+    //     std::cerr << error.what() << std::endl;
+    // }
+    // std::cout << *foo << std::endl;
 	return (EXIT_SUCCESS);
 }

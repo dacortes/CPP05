@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:05:02 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/08 11:20:20 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:00:25 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,42 @@ Bureaucrat::Bureaucrat(void): name("default")
 {
 	std::cout << O << "Bureaucrat: " << E << "Default constructor called"
 		<< std::endl;
-	this->grade = 150;
+	this->grade = MIN_GRADE;
 }
 
 Bureaucrat::Bureaucrat(std::string defname, int grade): name(defname)
 {
-	if (grade > 150)
+	if (grade > MIN_GRADE)
 		throw Bureaucrat::GradeTooLowException(std::string(ERROR)
 				+ std::string(INIT_CONSTRUCTOR) + std::string("Low"));
-	if (grade < 1)
+	if (grade < MAX_GRADE)
 		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
 				+ std::string(INIT_CONSTRUCTOR) + std::string("High"));
-	else if (grade >= 1 && grade <= 150)
+	else if (grade >= MAX_GRADE && grade <= MIN_GRADE)
 		this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.getName())
 {
-	if (obj.grade > 150)
+	if (obj.grade > MIN_GRADE)
 		throw Bureaucrat::GradeTooLowException(std::string(ERROR)
 				+ std::string(COPY_CONSTRUCTOR) + std::string("Low"));
-	if (obj.grade < 1)
+	if (obj.grade < MAX_GRADE)
 		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
 				+ std::string(COPY_CONSTRUCTOR) + std::string("High"));
-	else if (obj.grade >= 1 && obj.grade <= 150)
+	else if (obj.grade >= MAX_GRADE && obj.grade <= MIN_GRADE)
 		this->grade = obj.getGrade();
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
-	if (obj.grade > 150)
+	if (obj.grade > MIN_GRADE)
 		throw Bureaucrat::GradeTooLowException(std::string(ERROR)
 				+ std::string(COPY_CONSTRUCTOR) + std::string("Low"));
-	if (obj.grade < 1)
+	if (obj.grade < MAX_GRADE)
 		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
 				+ std::string(COPY_CONSTRUCTOR) + std::string("High"));
-	else if (obj.grade >= 1 && obj.grade <= 150)
+	else if (obj.grade >= MAX_GRADE && obj.grade <= MIN_GRADE)
 		this->grade = obj.getGrade();
 	return (*this);
 }
@@ -86,43 +86,53 @@ unsigned short int Bureaucrat::getGrade(void) const
 
 int	Bureaucrat::IncrementGrade(int increment)
 {
-	if (increment > 150)
+	if (increment < MAX_GRADE)
+	{
+        throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+                + std::string(INVALID)
+				+ (!increment ? "number zero" : "negative number"));
+		return (-1);
+	}
+	else if (increment > MIN_GRADE)
 	{
         throw Bureaucrat::GradeTooHighException(std::string(ERROR)
                 + std::string(INVALID)
 				+ std::string("parameter larger than max"));
+		return (-1);
 	}
-	else if (increment < 1)
+	else if (this->grade <= increment)
 	{
-        throw Bureaucrat::GradeTooHighException(std::string(ERROR)
-                + std::string(INVALID) + std::string("negative number"));
+		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+				+ std::string(INVALID) + std::string("High"));
+		return (-1);
 	}
-	else
-	{
-		this->grade -= increment;
-		if (this->grade < 1)
-			throw Bureaucrat::GradeTooHighException(std::string(ERROR)
-				+ std::string(COPY_CONSTRUCTOR) + std::string("High"));
-	}
+	this->grade -= increment;
 	return (increment);
 }
 
 int Bureaucrat::DecrementGrade(int decrement)
 {
-	if (decrement < 1)
+	if (decrement < MAX_GRADE)
     {
         throw Bureaucrat::GradeTooHighException(std::string(ERROR)
-                + std::string(INVALID) + std::string("negative number"));
+                + std::string(INVALID)
+				+ (!decrement ? "number zero" : "negative number"));
+		return (-1);
     }
-    else
+	else if (decrement > MIN_GRADE)
+	{
+		throw Bureaucrat::GradeTooHighException(std::string(ERROR)
+                + std::string(INVALID)
+				+ std::string("parameter larger than max"));
+		return (-1);
+	}
+    else if ((this->grade + decrement) > MIN_GRADE)
     {
-        this->grade += decrement;
-		if (this->grade > 150)
-        {
-        	throw Bureaucrat::GradeTooLowException(std::string(ERROR)
+       	throw Bureaucrat::GradeTooLowException(std::string(ERROR)
             	+ std::string(DECREMENT) + std::string("Low"));
-        }
+		return (-1);
     }
+	this->grade += decrement;
     return (this->grade);
 }
 
