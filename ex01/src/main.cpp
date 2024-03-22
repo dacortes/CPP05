@@ -6,14 +6,13 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/20 18:52:21 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:35:43 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 
 #include <sstream>
-
 
 #define GET_NAME 0
 #define GET_SIGN_GRADE 1

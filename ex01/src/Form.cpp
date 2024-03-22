@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:54:26 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/20 19:02:43 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:07:58 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ unsigned int Form::getExecGrade(void) const
 */
 
 bool Form::checker(unsigned int verify, unsigned int min, unsigned int max,
-		std::string msg)
+		std::string msg) const
 {
 	if (verify > min)
 	{
@@ -111,9 +111,10 @@ bool Form::checker(unsigned int verify, unsigned int min, unsigned int max,
 
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
-	checker(bureaucrat.getGrade(), this->getSignGrade(), MAX_GRADE,
+	if (checker(bureaucrat.getGrade(), this->getSignGrade(), MAX_GRADE,
 	std::string(bureaucrat.getName() + "couldn’t sign" +  this->getName()
-	+ "because invalid sing grade: "));
+	+ "because invalid sing grade: ")))
+		return ;
 	if (this->isSigned)
 	{
 		throw Form::IsSignedException(std::string( this->getName()

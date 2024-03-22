@@ -111,6 +111,23 @@ int	Bureaucrat::IncrementGrade(int increment)
 	return (increment);
 }
 
+void	Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << SUCCESS << this->name << " signed " << form.getName() 
+			<< std::endl;
+	}
+	catch (std::logic_error &error)
+	{
+		std::cout << ERROR << this->name <<  " couldn't sign " << form.getName()
+		<< " because " << error.what() << std::endl;
+		return ;
+	}
+}
+
+
 int Bureaucrat::DecrementGrade(int decrement)
 {
 	if (decrement < MAX_GRADE)

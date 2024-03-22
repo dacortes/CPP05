@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/16 10:34:58 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:21:26 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,8 @@ void	testPresidentialPardonForm(void)
 
 int	main(void)
 {
-	//line 19
 	testShrubberyCreationForm();
-	//line 56
 	testRobotomyRequestForm();
-	//line 93 
 	testPresidentialPardonForm();
 	return (EXIT_SUCCESS);
 }

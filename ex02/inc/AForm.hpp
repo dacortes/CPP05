@@ -53,7 +53,7 @@ class AForm
 		/*
 		 * Membert Funtions
 		*/
-		void	checker(unsigned int verify, unsigned int min, unsigned int max,
+		bool	checker(unsigned int verify, unsigned int min, unsigned int max,
 				std::string msg) const;
 		void	beSigned(const Bureaucrat &bureaucrat);
 		void	execute(const Bureaucrat &executor) const;

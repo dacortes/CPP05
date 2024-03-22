@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 09:03:00 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/20 18:57:53 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:41:03 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@
 /******************************************************************************/
 
 # include "Bureaucrat.hpp"
+# include <string>
+# include <iostream>
 
 /******************************************************************************/
 /*                            CLASS                                           */
 /******************************************************************************/
+
+class Bureaucrat;
 
 class Form
 {
@@ -50,7 +54,7 @@ class Form
 		 * Membert Funtions
 		*/
 		bool	checker(unsigned int verify, unsigned int min, unsigned int max,
-				std::string msg);
+				std::string msg) const;
 		void	beSigned(const Bureaucrat &bureaucrat);
 		/*
 		 * Exception Classes
