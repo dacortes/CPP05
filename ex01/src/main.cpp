@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/22 18:02:29 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:03:24 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,19 +187,19 @@ void	testsBureaucratSignForm( void )
 
 	doBureaucratSignFormTest( 1, "too low signGrade", JuanMinGrade, formMidGrade );
 
-	// // Limits Grade to signForm and equal grade
-	// doBureaucratSignFormTest( 4, "signGrade equals to Bureaucrat Grade [ MIN GRADE ]", \
-	// 							JuanMinGrade, formMinGrade );
-	// doBureaucratSignFormTest( 2, "signGrade equals to Bureaucrat Grade [ MID GRADE ]", \
-	// 							JuanMidGrade, formMidGrade );
-	// doBureaucratSignFormTest( 3, "signGrade equals to Bureaucrat Grade [ MAX GRADE ]", \
-	// 							JuanMaxGrade, formMaxGrade );
+	// Limits Grade to signForm and equal grade
+	doBureaucratSignFormTest( 4, "signGrade equals to Bureaucrat Grade [ MIN GRADE ]", \
+								JuanMinGrade, formMinGrade );
+	doBureaucratSignFormTest( 2, "signGrade equals to Bureaucrat Grade [ MID GRADE ]", \
+								JuanMidGrade, formMidGrade );
+	doBureaucratSignFormTest( 3, "signGrade equals to Bureaucrat Grade [ MAX GRADE ]", \
+								JuanMaxGrade, formMaxGrade );
 
-	// // Form already signed and their priorities
-	// doBureaucratSignFormTest( 5, "form is already signed and valid grade", \
-	// 							JuanMidGrade, formMidGrade );
-	// doBureaucratSignFormTest( 6, "form is already signed and invalid grade", \
-	// 							JuanMinGrade, formMidGrade );
+	// Form already signed and their priorities
+	doBureaucratSignFormTest( 5, "form is already signed and valid grade", \
+								JuanMidGrade, formMidGrade );
+	doBureaucratSignFormTest( 6, "form is already signed and invalid grade", \
+								JuanMinGrade, formMidGrade );
 }
 
 bool	executionQuestion( std::string testsName )
