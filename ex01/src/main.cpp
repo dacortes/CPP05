@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/22 18:03:24 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:24:56 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #define GET_IS_SIGNED 3
 # define MID_GRADE ((MAX_GRADE - MIN_GRADE) / 2 + MIN_GRADE)
 
+// test eralonso
 // Utils
 Bureaucrat	testConstructorBureaucratGrade( unsigned int grade, int& catched )
 {

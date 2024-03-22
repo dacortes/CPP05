@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/22 13:43:44 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:25:12 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,6 +335,7 @@
 // 	return (EXIT_SUCCESS);
 // }
 
+// test eralonso
 Bureaucrat	testConstructorGrade( unsigned int grade, int& catched )
 {
 	Bureaucrat	Joan( "Juan", MIN_GRADE );
