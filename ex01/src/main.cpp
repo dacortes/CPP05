@@ -6,7 +6,7 @@
 /*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:00:08 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/22 13:35:43 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:02:29 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,42 @@ void	doFormGetterTest( unsigned int testNumber, std::string testName, \
 	std::cout << "End of test\n"  << std::endl;
 }
 
+void	doBureaucratSignFormTest( unsigned int testNumber, std::string testName, \
+								Bureaucrat& Juan, Form& form )
+{
+	std::cout << "Test " << testNumber << ": " << testName << " in signForm method: Form\t" \
+		<< "form( \"" << form.getName() << "\", " << form.getSignGrade() \
+		<<  ", "<< form.getExecGrade() << ")" << " && Bureaucrat\tJuan( \" " \
+		<< Juan.getName() << "\", " << Juan.getGrade() << " )" << " )"  << std::endl;
+	std::cout << "\tform stats -> " << form << std::endl;
+	std::cout << "\t";
+	try
+	{
+		Juan.signForm( form );
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "\tform stats -> " << form << std::endl;
+	std::cout << "End of test\n"  << std::endl;
+}
+
 // TESTS
 void	testsFormConstructor( void )
 {
 	//Constructor Tests
-
+	
 	//	signGrade: Out of range Grades in Form constructor
 
 	doFormConstructorTest( 1, "too low signGrade", MIN_GRADE + 1, MID_GRADE );
 	doFormConstructorTest( 2, "too high signGrade", MAX_GRADE - 1, MID_GRADE );
-
+	
 	//	execGrade: Out of range Grades in Form constructor
 
 	doFormConstructorTest( 3, "too low execGrade", MID_GRADE, MIN_GRADE + 1 );
 	doFormConstructorTest( 4, "too high execGrade", MID_GRADE, MAX_GRADE - 1 );
-
+	
 	//	Both: Out of range Grades in Form constructor
 
 	doFormConstructorTest( 5, "too low both signGrade and execGrade", \
@@ -127,7 +148,7 @@ void	testsFormGetters( void )
 	Bureaucrat	Juan( "Juan", MID_GRADE );
 
 	//Getters Tests
-
+	
 	//	getName()
 
 	doFormGetterTest( 1, "getName()", form, GET_NAME );
@@ -146,8 +167,39 @@ void	testsFormGetters( void )
 
 	//	getIsSigned(): After singed
 
-	//Juan.signForm( form );
-	//doFormGetterTest( 5, "getIsSigned() [ After Sign a Form ]", form, GET_IS_SIGNED );
+	Juan.signForm( form );
+	doFormGetterTest( 5, "getIsSigned() [ After Sign a Form ]", form, GET_IS_SIGNED );
+}
+
+
+void	testsBureaucratSignForm( void )
+{
+	Form		formMinGrade( "Juan's form", MIN_GRADE, MIN_GRADE );
+	Form		formMidGrade( "Juan's form", MID_GRADE, MID_GRADE );
+	Form		formMaxGrade( "Juan's form", MAX_GRADE, MAX_GRADE );
+	Bureaucrat	JuanMinGrade( "Juan", MIN_GRADE );
+	Bureaucrat	JuanMidGrade( "Juan", MID_GRADE );
+	Bureaucrat	JuanMaxGrade( "Juan", MAX_GRADE );
+
+	// //Method Tests
+	
+	// //	Invalid Grade to signForm
+
+	doBureaucratSignFormTest( 1, "too low signGrade", JuanMinGrade, formMidGrade );
+
+	// // Limits Grade to signForm and equal grade
+	// doBureaucratSignFormTest( 4, "signGrade equals to Bureaucrat Grade [ MIN GRADE ]", \
+	// 							JuanMinGrade, formMinGrade );
+	// doBureaucratSignFormTest( 2, "signGrade equals to Bureaucrat Grade [ MID GRADE ]", \
+	// 							JuanMidGrade, formMidGrade );
+	// doBureaucratSignFormTest( 3, "signGrade equals to Bureaucrat Grade [ MAX GRADE ]", \
+	// 							JuanMaxGrade, formMaxGrade );
+
+	// // Form already signed and their priorities
+	// doBureaucratSignFormTest( 5, "form is already signed and valid grade", \
+	// 							JuanMidGrade, formMidGrade );
+	// doBureaucratSignFormTest( 6, "form is already signed and invalid grade", \
+	// 							JuanMinGrade, formMidGrade );
 }
 
 bool	executionQuestion( std::string testsName )
@@ -175,9 +227,9 @@ int	main( void )
 		testsFormGetters();
 	std::cout << std::endl;
 
-//	if ( executionQuestion( "Bureaucrat signForm() method" ) == true )
-//		testsBureaucratSignForm();
-//	std::cout << std::endl;
+	if ( executionQuestion( "Bureaucrat signForm() method" ) == true )
+		testsBureaucratSignForm();
+	std::cout << std::endl;
 
-	return ( EXIT_SUCCESS );
+	return ( 0 );
 }
