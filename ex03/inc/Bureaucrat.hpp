@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dacortes <dacortes@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dacortes <dacortes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 08:50:09 by dacortes          #+#    #+#             */
-/*   Updated: 2024/03/16 10:26:23 by dacortes         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:19:24 by dacortes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ class  Bureaucrat
 		int		IncrementGrade(int increment);
 		int		DecrementGrade(int decrement);
 		void	executeForm(const AForm &form) const;
+		void	signForm(AForm &form) const;
 		/*
 		 * Exception Classes
 		*/

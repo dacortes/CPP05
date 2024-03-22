@@ -14,7 +14,7 @@
 
 
 /*
- * Orthodox Canonical AForm
+ * Orthodox Canonical Form
 */
 
 AForm::AForm(void): name("default"), isSigned(false), signGrade(MIN_GRADE),
@@ -27,23 +27,27 @@ AForm::AForm(void): name("default"), isSigned(false), signGrade(MIN_GRADE),
 AForm::AForm(std::string defname, unsigned int def_sign, unsigned int def_exec): \
 		name(defname), isSigned(false), signGrade(def_sign), execGrade(def_exec)
 {
-	checker(def_sign, MIN_GRADE, MAX_GRADE,
+	if (checker(def_sign, MIN_GRADE, MAX_GRADE,
 			std::string(std::string(INIT_CONSTRUCTOR)
-			+ std::string("Sign grade: ")));
-	checker(def_exec, MIN_GRADE, MAX_GRADE,
+			+ std::string("Sign grade: "))))
+			return ;
+	if (checker(def_exec, MIN_GRADE, MAX_GRADE,
 			std::string(std::string(INIT_CONSTRUCTOR)
-			+ std::string("Exec grade: ")));
+			+ std::string("Exec grade: "))))
+			return ;
 }
 
 AForm::AForm(const AForm &obj): name(obj.getName()),
 	signGrade(obj.getSignGrade()), execGrade(obj.getExecGrade())
 {
-	checker(obj.getSignGrade(), MIN_GRADE, MAX_GRADE,
+	if (checker(obj.getSignGrade(), MIN_GRADE, MAX_GRADE,
 			std::string(std::string(COPY_CONSTRUCTOR)
-			+ std::string("Sign grade")));
-	checker(obj.getExecGrade(), MIN_GRADE, MAX_GRADE,
+			+ std::string("Sign grade"))))
+			return ;
+	if (checker(obj.getExecGrade(), MIN_GRADE, MAX_GRADE,
 			std::string(std::string(COPY_CONSTRUCTOR)
-			+ std::string("Exec grade")));
+			+ std::string("Exec grade"))))
+			return ;
 	this->isSigned = obj.getIsSigned();
 }
 
@@ -87,33 +91,46 @@ unsigned int AForm::getExecGrade(void) const
  * Membet Funtions
 */
 
-void AForm::checker(unsigned int verify, unsigned int min, unsigned int max,
+bool AForm::checker(unsigned int verify, unsigned int min, unsigned int max,
 		std::string msg) const
 {
 	if (verify > min)
+	{
 		throw AForm::GradeTooLowException(std::string(ERROR)
 				+ msg + std::string("Low"));
+		return (EXIT_FAILURE);
+	}
 	if (verify < max)
+	{
 		throw AForm::GradeTooHighException(std::string(ERROR)
 				+ msg + std::string("High"));
+		return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
 }
 
 void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
-	checker(bureaucrat.getGrade(), this->getSignGrade(), MAX_GRADE,
+	if (checker(bureaucrat.getGrade(), this->getSignGrade(), MAX_GRADE,
 	std::string(bureaucrat.getName() + "couldn’t sign" +  this->getName()
-	+ "because invalid sing grade: "));
+	+ "because invalid sing grade: ")))
+		return ;
 	if (this->isSigned)
+	{
 		throw AForm::IsSignedException(std::string( this->getName()
 		+ ": it's already signed"));
+		return ;
+	}
 	this->isSigned = true;
 }
+
 void	AForm::execute(const Bureaucrat &executor) const
 {
-	checker(executor.getGrade(), this->execGrade, MAX_GRADE,
+	if (checker(executor.getGrade(), this->execGrade, MAX_GRADE,
 	std::string(executor.getName() + "couldn’t execute" +  this->getName()
-	+ "because invalid sing grade: "));
-	executeMagic();
+	+ "because invalid sing grade: ")))
+		return ;
+	this->executeMagic();
 }
 
 AForm::GradeTooLowException::GradeTooLowException(const std::string &msg)
